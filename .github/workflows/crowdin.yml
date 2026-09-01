@@ -4,17 +4,22 @@ on:
   push:
     branches: [ crowdin-trigger ]
 
+permissions: read-all
+
 jobs:
   synchronize-with-crowdin:
     name: Synchronize with crowdin
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v7
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
     - name: crowdin action
-      uses: crowdin/github-action@v3.0.0
+      uses: crowdin/github-action@e4a6c1338b4063c77d46a81875265f9e8bd76f95 # v3.0.0
       with:
         upload_translations: false # default is false
         # Use this option to upload translations for a single specified language

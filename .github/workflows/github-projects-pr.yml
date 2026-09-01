@@ -23,6 +23,9 @@ on:
     - review_request_removed
     - auto_merge_enabled
     - auto_merge_disabled
+
+permissions: read-all
+
 jobs:
   add-to-project:
     name: Add issue to project
@@ -32,12 +35,12 @@ jobs:
       repository-projects: write
     if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@c02d162cc960fe89745fcbc0053f3cce2c609043 # main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/24
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT || github.token }}
           label-operator: AND
-      - uses: actions/add-to-project@main
+      - uses: actions/add-to-project@c02d162cc960fe89745fcbc0053f3cce2c609043 # main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
