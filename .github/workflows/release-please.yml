@@ -5,10 +5,15 @@ on:
     branches:
       - main
 
+permissions: read-all
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v5.0.0
+      - uses: GoogleCloudPlatform/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
