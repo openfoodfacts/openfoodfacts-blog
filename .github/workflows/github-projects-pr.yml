@@ -35,12 +35,12 @@ jobs:
       repository-projects: write
     if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - uses: actions/add-to-project@10852874378313643e82f7be4d23615b23a22d99 # main
+      - uses: actions/add-to-project@c806f133a7b43b90099756977320554ea33e31ba # main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/24
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT || github.token }}
           label-operator: AND
-      - uses: actions/add-to-project@10852874378313643e82f7be4d23615b23a22d99 # main
+      - uses: actions/add-to-project@c806f133a7b43b90099756977320554ea33e31ba # main
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/136 # Add issue to the Translations project
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
