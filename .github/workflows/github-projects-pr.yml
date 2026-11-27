@@ -1,9 +1,6 @@
 name: Add PRs to the Marketing GitHub Project
 
 on:
-  pull_request:
-    types:
-      - opened
   pull_request_target:
     types:
     - assigned
@@ -38,7 +35,7 @@ jobs:
       - uses: actions/add-to-project@v2.0.1
         with:
           project-url: https://github.com/orgs/openfoodfacts/projects/24
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT || github.token }}
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           label-operator: AND
       - uses: actions/add-to-project@v2.0.1
         with:
